@@ -1,2 +1,2 @@
-# lil-ufo
-CLI UFO editing tools
+# Li'l UFO
+A simple CLI font editor.
