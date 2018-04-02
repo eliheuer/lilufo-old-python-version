@@ -38,18 +38,17 @@ def main_menu():
     choice = input(">>> ")
     return choice
 
-def ufo_test(ufo):
+def ufo_test(font):
     # Test UFO data
-    glyph_count = len(ufo)
+    glyph_count = len(font)
     print("\nGlyph count:", glyph_count)
 
-    del ufo["A"]
+    del font["A"]
     print("removing A from font... Done.")
-    glyph_count = len(ufo)
+    glyph_count = len(font)
     print("New glyph count:", glyph_count)
 
-    ufo.save(ufo_output_path)
-    print("UFO output... done: ", ufo_output_path)
+    
 
 def edit_glyphs(args):
     print("Edit glyphs!")
@@ -60,33 +59,35 @@ def edit_kerning(args):
 def add_glyphs(args):
     print("Add glyphs!")
 
-def run():
+def main():
     banner_art()
 
     # Load UFO
     args = create_arg_parser()
     ufo_input_path = args.i
     ufo_output_path = args.o
-    ufo = defcon.Font(ufo_input_path)
+    font = defcon.Font(ufo_input_path)
 
+    for glyph in font:
+        print(glyph)
     # Main menu
     choice = int(main_menu())
 
     banner_art()
     if choice == 1:
-        ufo_test(ufo)
+        ufo_test(font)
     if choice == 2:
-        edit_glyphs(ufo)
+        edit_glyphs(font)
     if choice == 3:
-        edit_kerning(ufo)
+        edit_kerning(font)
     if choice == 4:
-        add_glyphs(ufo)
+        add_glyphs(font)
     if choice == 5:
         view_proof()
     if choice == 6:
-        ufo_info(ufo)
+        ufo_info(font)
     if choice == 7:
-        ufo.save(ufo_output_path)
+        font.save(ufo_output_path)
         print("UFO output... done: ", ufo_output_path)
     if choice == 8:
         restart_program()
@@ -106,4 +107,4 @@ def run():
         sys.exit()
 
 if __name__ == "__main__":
-    run()
+    main()
