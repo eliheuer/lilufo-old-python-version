@@ -56,6 +56,16 @@ def edit_kerning(args):
 def add_glyphs(args):
     print("Add glyphs!")
 
+def ufo_info(font):
+    print("UFO info:")
+
+    # Glyph count
+    glyph_count = len(font)
+    print("\nGlyph count:", glyph_count)
+    for glyph in font:
+        print(glyph)
+    print("\nDone.\n")
+
 def main():
 
     # Load UFO
@@ -65,10 +75,6 @@ def main():
     font = defcon.Font(ufo_input_path)
     banner_art(font)
 
-
-    #for glyph in font:
-    #    print(glyph)
-    # Main menu
     choice = int(main_menu())
 
     banner_art(font)
