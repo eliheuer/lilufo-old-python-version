@@ -3,11 +3,6 @@ import defcon
 import sys, os
 
 def restart_program():
-    """
-    Restarts the current program.
-    Note: this function does not return. Any cleanup action
-    (like saving data) must be done before calling this function.
-    """
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
@@ -16,14 +11,6 @@ def create_arg_parser():
     parser.add_argument("-i", help = "input filename")
     parser.add_argument("-o", help = "output filename")
     args = parser.parse_args()
-    return args
-
-def get_ufos():
-    args = create_arg_parser()
-    ufo_input_path = args.i
-    ufo_output_path = args.o
-    print('UFO input path: ', ufo_input_path)
-    print('UFO output path:', ufo_output_path)
     return args
 
 def banner_art():
@@ -39,55 +26,84 @@ def banner_art():
 
 # Main menu
 def main_menu():
-    print ("\nWelcome, earthling.")
+    print ("Welcome, earthling.")
     print ("Please choose a choice:")
-    print ("\n[1] Write Output UFO")
+    print ("\n[1] UFO Test")
     print ("[2] Edit glyphs")
     print ("[3] Edit kerning")
-    print ("[4] Restart program")
-    print ("[5] Quit program")
+    print ("[4] Add glyphs")
+    print ("[5] Restart program")
+    print ("[6] Quit program")
 
     choice = input(">>> ")
-    exec_choice(int(choice))
+    return choice
 
-def exec_choice(choice):
-    if int(choice) == 1:
-        print("Choice = 1")
-        return 1
-    if int(choice) == 2:
-        print("Choice = 2")
-        return 2
-    if int(choice) == 3:
-        print("Choice = 3")
-        return 3
-    if int(choice) == 4:
-        print("Choice = 4")
-        restart_program()
-    if int(choice) == 5:
-        print("Choice = 5")
-        sys.exit()
-    else:
-        print("Error: enter an integer please. :(")
-
-def ufo_test(args):
-    ufo_input_path = args.i
-    ufo_output_path = args.o
-    print('\nUFO input path: ', ufo_input_path)
-    print('UFO output path:', ufo_output_path)
-    ufo = defcon.Font(ufo_input_path)
-
+def ufo_test(ufo):
+    # Test UFO data
     glyph_count = len(ufo)
     print("\nGlyph count:", glyph_count)
+
     del ufo["A"]
     print("removing A from font... Done.")
     glyph_count = len(ufo)
     print("New glyph count:", glyph_count)
+
     ufo.save(ufo_output_path)
     print("UFO output... done: ", ufo_output_path)
-    print('Done.\n')
+
+def edit_glyphs(args):
+    print("Edit glyphs!")
+
+def edit_kerning(args):
+    print("Edit kerning!")
+
+def add_glyphs(args):
+    print("Add glyphs!")
+
+def run():
+    banner_art()
+
+    # Load UFO
+    args = create_arg_parser()
+    ufo_input_path = args.i
+    ufo_output_path = args.o
+    ufo = defcon.Font(ufo_input_path)
+
+    # Main menu
+    choice = int(main_menu())
+
+    banner_art()
+    if choice == 1:
+        ufo_test(ufo)
+    if choice == 2:
+        edit_glyphs(ufo)
+    if choice == 3:
+        edit_kerning(ufo)
+    if choice == 4:
+        add_glyphs(ufo)
+    if choice == 5:
+        view_proof()
+    if choice == 6:
+        ufo_info(ufo)
+    if choice == 7:
+        ufo.save(ufo_output_path)
+        print("UFO output... done: ", ufo_output_path)
+    if choice == 8:
+        restart_program()
+    if choice == 9:
+        sys.exit()
+
+    print("Continue? [y/n]:")
+    go_on = input(">>> ")
+    if go_on == 'y':
+        flag = True
+    else:
+        flag = False
+
+    if flag == True:
+        run()
+    else:
+        sys.exit()
 
 if __name__ == "__main__":
-    banner_art()
-    args = create_arg_parser()
-    choice = main_menu()
-    ufo_test(args)
+    run()
