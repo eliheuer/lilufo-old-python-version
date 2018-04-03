@@ -1,5 +1,8 @@
-.. image:: Lib/simplefont/resources/lilufo.png
-# LIL UFO
+.. image:: Lib/lilufo/resources/lilufo.png
+
+LIL UFO
+=======
+
 A simple CLI/GUI UFO font editor.
 
 # Install
