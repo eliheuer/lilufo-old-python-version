@@ -1,4 +1,6 @@
-@GDEF_Simple = [\A \O ];
+
+
+@GDEF_Simple = [\A \O \NameMe.188 ];
 
 table GDEF {
   GlyphClassDef @GDEF_Simple, , , ;
