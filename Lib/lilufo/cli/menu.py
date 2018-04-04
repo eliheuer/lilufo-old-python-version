@@ -1,6 +1,6 @@
 # ART #########################
-def banner_art(ufo):
-    os.system('clear')
+def banner_art():
+    # os.system('clear')
     print("    .     *     .           .    ")
     print("   .------.                      ")
     print(" _/____@_@_\_              .     ")
