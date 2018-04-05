@@ -1,9 +1,9 @@
 .. image:: Lib/lilufo/resources/lilufo.gif
 
-LIL UFO
-=======
+lilufo
+======
 
-A simple CLI UFO font editor.
+A simple font editor.
 
 .. image:: Lib/lilufo/resources/screenshots/screenshot.png
 
