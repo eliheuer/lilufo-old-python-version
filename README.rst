@@ -1,17 +1,39 @@
-.. image:: Lib/lilufo/resources/lilufo.png
+.. image:: Lib/lilufo/resources/lilufo.gif
 
 LIL UFO
 =======
 
-A simple CLI/GUI UFO font editor.
+A simple CLI UFO font editor.
 
 .. image:: Lib/lilufo/resources/screenshots/screenshot.png
 
-# Install
-1. Use pip to install LIL UFO in "editable" mode:
-   ``pip install --editable .``
+Installation
+============
 
-Getting started
-===============
+Install **Python 3.5** (or later):
 
-Info here
+Check which version of Python3 you have installed, open a command prompt and run:
+
+    `python3 --version`
+
+Install Python3 for Ubuntu:
+
+    `apt install python3`
+
+Set up a new Python **virtual environment**. Although this is not required, it's *highly recommended*:
+
+   `python3 -m venv lilvenv`
+
+Start the virtual environment:
+
+    `source ilivenv\bin\activate`
+
+
+Install the dependencies as listed in `requirements.txt`:
+
+   `pip install --upgrade -r requirements.txt`
+
+
+Use pip to install LIL UFO in "editable" mode:
+
+    `pip install --editable .`
