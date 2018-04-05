@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name="lilufo",
     version="0.1.0.dev0",
-    description="Li'l UFO, a CLI font editor.",
+    description="LIL UFO, a CLI font editor.",
     author="Eli Heuer",
     author_email="elih@protonmail.com",
     url="http://github.com/eliheuer/lilufo",
