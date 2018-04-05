@@ -1,9 +1,10 @@
-.. image:: Lib/lilufo/resources/lilufo.gif
 
 lilufo
 ======
 
 A simple font editor.
+
+.. image:: Lib/lilufo/resources/lilufo.gif
 
 .. image:: Lib/lilufo/resources/screenshots/screenshot.png
 
